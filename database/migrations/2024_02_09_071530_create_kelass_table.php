@@ -1,5 +1,3 @@
-
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -13,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('petugass', function (Blueprint $table) {
-            $table->id('id_petugas');
-            $table->string('nama_petugas',35);
-            $table->string('username',25);
-            $table->string('password',32);
-            $table->string('telepon',13);
-            $table->enum('level', ['admin','petugas']);
+        Schema::create('kelass', function (Blueprint $table) {
+            $table->id('id_kelass');
+            $table->string('nama_kelas', 10);
+            $table->string('kompetensi_keahlian', 50);
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('petugass');
+        Schema::dropIfExists('kelass');
     }
 };
