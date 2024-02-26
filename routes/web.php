@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\SppController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\PetugasController;
+use App\Models\Kelas;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +35,11 @@ Route::controller(SppController::class)->group(function () {
     Route::put('/spp/{spp}', 'update')->name('spp.update');
     Route::delete('/spp/{spp}', 'destroy')->name('spp.destroy');
 });
+
+Route::resource('kelas', KelasController::class)->parameters([
+    'kelas' => 'kelas',
+]); //crud crR
+
+Route::resource('petugas', PetugasController::class)->parameters([
+    'petugas' => 'petugas',
+]);   
